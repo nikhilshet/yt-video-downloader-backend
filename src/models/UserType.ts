@@ -4,5 +4,6 @@ export type User = {
     emailId:String,
     dob:String,
     userType:String,
-    phone:String
+    phone:String,
+    password:String
 }

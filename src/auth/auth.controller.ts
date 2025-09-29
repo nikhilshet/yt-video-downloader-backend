@@ -11,6 +11,7 @@ export class AuthController{
 
     @Post('/login')
     login(@Body() data:any , @Req() request: Request){
+        return this.authService.login(data)
     }   
     
     @Post('/register')

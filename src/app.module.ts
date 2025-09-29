@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { Neo4jModule } from 'nest-neo4j/dist';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { UrlShortenerModule } from './url-shortener/urlshortener.module';
+import { UserService } from './services/user.service';
 
 
 @Module({
@@ -23,8 +25,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         database: config.get<string>('NEO4J_DATABASE')
       })
     }),
-    AuthModule],
+    AuthModule,
+    UrlShortenerModule
+  ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService , UserService],
 })
 export class AppModule {}
